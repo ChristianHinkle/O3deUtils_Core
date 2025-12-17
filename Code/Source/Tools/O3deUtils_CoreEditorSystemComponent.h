@@ -3,23 +3,23 @@
 
 #include <AzToolsFramework/API/ToolsApplicationAPI.h>
 
-#include <Clients/O3DECoreUtilsSystemComponent.h>
+#include <Clients/O3deUtils_CoreSystemComponent.h>
 
-namespace O3DECoreUtils
+namespace O3deUtils_Core
 {
-    /// System component for O3DECoreUtils editor
-    class O3DECoreUtilsEditorSystemComponent
-        : public O3DECoreUtilsSystemComponent
+    /// System component for O3deUtils_Core editor
+    class O3deUtils_CoreEditorSystemComponent
+        : public O3deUtils_CoreSystemComponent
         , protected AzToolsFramework::EditorEvents::Bus::Handler
     {
-        using BaseSystemComponent = O3DECoreUtilsSystemComponent;
+        using BaseSystemComponent = O3deUtils_CoreSystemComponent;
     public:
-        AZ_COMPONENT_DECL(O3DECoreUtilsEditorSystemComponent);
+        AZ_COMPONENT_DECL(O3deUtils_CoreEditorSystemComponent);
 
         static void Reflect(AZ::ReflectContext* context);
 
-        O3DECoreUtilsEditorSystemComponent();
-        ~O3DECoreUtilsEditorSystemComponent();
+        O3deUtils_CoreEditorSystemComponent();
+        ~O3deUtils_CoreEditorSystemComponent();
 
     private:
         static void GetProvidedServices(AZ::ComponentDescriptor::DependencyArrayType& provided);
@@ -31,4 +31,4 @@ namespace O3DECoreUtils
         void Activate() override;
         void Deactivate() override;
     };
-} // namespace O3DECoreUtils
+} // namespace O3deUtils_Core

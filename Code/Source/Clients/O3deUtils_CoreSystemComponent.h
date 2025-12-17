@@ -3,17 +3,17 @@
 
 #include <AzCore/Component/Component.h>
 #include <AzCore/Component/TickBus.h>
-#include <O3DECoreUtils/O3DECoreUtilsBus.h>
+#include <O3deUtils_Core/O3deUtils_CoreBus.h>
 
-namespace O3DECoreUtils
+namespace O3deUtils_Core
 {
-    class O3DECoreUtilsSystemComponent
+    class O3deUtils_CoreSystemComponent
         : public AZ::Component
-        , protected O3DECoreUtilsRequestBus::Handler
+        , protected O3deUtils_CoreRequestBus::Handler
         , public AZ::TickBus::Handler
     {
     public:
-        AZ_COMPONENT_DECL(O3DECoreUtilsSystemComponent);
+        AZ_COMPONENT_DECL(O3deUtils_CoreSystemComponent);
 
         static void Reflect(AZ::ReflectContext* context);
 
@@ -22,12 +22,12 @@ namespace O3DECoreUtils
         static void GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& required);
         static void GetDependentServices(AZ::ComponentDescriptor::DependencyArrayType& dependent);
 
-        O3DECoreUtilsSystemComponent();
-        ~O3DECoreUtilsSystemComponent();
+        O3deUtils_CoreSystemComponent();
+        ~O3deUtils_CoreSystemComponent();
 
     protected:
         ////////////////////////////////////////////////////////////////////////
-        // O3DECoreUtilsRequestBus interface implementation
+        // O3deUtils_CoreRequestBus interface implementation
 
         ////////////////////////////////////////////////////////////////////////
 
@@ -44,4 +44,4 @@ namespace O3DECoreUtils
         ////////////////////////////////////////////////////////////////////////
     };
 
-} // namespace O3DECoreUtils
+} // namespace O3deUtils_Core

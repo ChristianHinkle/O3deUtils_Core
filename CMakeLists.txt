@@ -1,5 +1,5 @@
 
-o3de_gem_setup("O3DECoreUtils")
+o3de_gem_setup("O3deUtils_Core")
 
 ly_add_external_target_path(${CMAKE_CURRENT_SOURCE_DIR}/3rdParty)
 

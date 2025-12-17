@@ -1,22 +1,22 @@
 
 #pragma once
 
-#include <O3DECoreUtils/O3DECoreUtilsTypeIds.h>
+#include <O3deUtils_Core/O3deUtils_CoreTypeIds.h>
 
 #include <AzCore/EBus/EBus.h>
 #include <AzCore/Interface/Interface.h>
 
-namespace O3DECoreUtils
+namespace O3deUtils_Core
 {
-    class O3DECoreUtilsRequests
+    class O3deUtils_CoreRequests
     {
     public:
-        AZ_RTTI(O3DECoreUtilsRequests, O3DECoreUtilsRequestsTypeId);
-        virtual ~O3DECoreUtilsRequests() = default;
+        AZ_RTTI(O3deUtils_CoreRequests, O3deUtils_CoreRequestsTypeId);
+        virtual ~O3deUtils_CoreRequests() = default;
         // Put your public methods here
     };
 
-    class O3DECoreUtilsBusTraits
+    class O3deUtils_CoreBusTraits
         : public AZ::EBusTraits
     {
     public:
@@ -27,7 +27,7 @@ namespace O3DECoreUtils
         //////////////////////////////////////////////////////////////////////////
     };
 
-    using O3DECoreUtilsRequestBus = AZ::EBus<O3DECoreUtilsRequests, O3DECoreUtilsBusTraits>;
-    using O3DECoreUtilsInterface = AZ::Interface<O3DECoreUtilsRequests>;
+    using O3deUtils_CoreRequestBus = AZ::EBus<O3deUtils_CoreRequests, O3deUtils_CoreBusTraits>;
+    using O3deUtils_CoreInterface = AZ::Interface<O3deUtils_CoreRequests>;
 
-} // namespace O3DECoreUtils
+} // namespace O3deUtils_Core

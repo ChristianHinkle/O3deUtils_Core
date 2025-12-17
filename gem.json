@@ -1,7 +1,7 @@
 {
-    "gem_name": "O3DECoreUtils",
+    "gem_name": "O3deUtils_Core",
     "version": "1.0.0",
-    "display_name": "O3DECoreUtils",
+    "display_name": "O3deUtils_Core",
     "license": "",
     "license_url": "",
     "origin": "",
@@ -12,7 +12,7 @@
         "Gem"
     ],
     "user_tags": [
-        "O3DECoreUtils"
+        "O3deUtils_Core"
     ],
     "platforms": [
         "iOS","Linux","Android","Windows"
