@@ -29,7 +29,8 @@ ly_add_target(
             Include
     BUILD_DEPENDENCIES
         INTERFACE
-           AZ::AzCore
+            AZ::AzCore
+            CppUtils::Concepts::Include
 )
 
 # The ${gem_name}.Private.Object target is an internal target
@@ -49,6 +50,7 @@ ly_add_target(
     BUILD_DEPENDENCIES
         PUBLIC
             AZ::AzCore
+            CppUtils::Concepts::Include
             AZ::AzFramework
 )
 
