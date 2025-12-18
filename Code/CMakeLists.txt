@@ -80,7 +80,7 @@ ly_add_target(
 # is used to bootstrap the gem in monolithic builds to link to the new gem name
 ly_add_source_properties(
 SOURCES
-    Source/Clients/O3deUtils_CoreModule.cpp
+    Source/O3deUtils_CoreModule.cpp
 PROPERTY COMPILE_DEFINITIONS
     VALUES
         O3DE_GEM_NAME=${gem_name}
