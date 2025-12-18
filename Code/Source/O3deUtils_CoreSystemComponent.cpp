@@ -1,5 +1,5 @@
 
-#include "O3deUtils_CoreSystemComponent.h"
+#include <Source/O3deUtils_CoreSystemComponent.h>
 
 #include <O3deUtils_Core/O3deUtils_CoreTypeIds.h>
 

@@ -1,7 +1,7 @@
 
 #include <O3deUtils_Core/O3deUtils_CoreTypeIds.h>
-#include <O3deUtils_CoreModuleInterface.h>
-#include "O3deUtils_CoreSystemComponent.h"
+#include <Source/O3deUtils_CoreModuleInterface.h>
+#include <Source/O3deUtils_CoreSystemComponent.h>
 
 namespace O3deUtils_Core
 {

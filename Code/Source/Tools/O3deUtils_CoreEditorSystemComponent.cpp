@@ -1,6 +1,6 @@
 
 #include <AzCore/Serialization/SerializeContext.h>
-#include "O3deUtils_CoreEditorSystemComponent.h"
+#include <Source/Tools/O3deUtils_CoreEditorSystemComponent.h>
 
 #include <O3deUtils_Core/O3deUtils_CoreTypeIds.h>
 
