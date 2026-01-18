@@ -56,7 +56,7 @@ const char* O3deUtils::Core::AzCoreUtils::TryGetTypeName()
     }
 }
 
-template <CppUtils::Concepts::PointerToDerivedFrom<AZ::Component> TComponentPtr>
+template <CppUtils::Core::Concepts::PointerToDerivedFrom<AZ::Component> TComponentPtr>
 TComponentPtr O3deUtils::Core::AzCoreUtils::FindComponent(const AZ::Entity& entity)
 {
     using ComponentType = std::remove_pointer_t<TComponentPtr>;
@@ -64,7 +64,7 @@ TComponentPtr O3deUtils::Core::AzCoreUtils::FindComponent(const AZ::Entity& enti
     return entity.FindComponent<ComponentType>();
 }
 
-template <CppUtils::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
+template <CppUtils::Core::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
 TComponentRef O3deUtils::Core::AzCoreUtils::FindComponent(const AZ::Entity& entity)
 {
     using ComponentType = std::remove_reference_t<TComponentRef>;

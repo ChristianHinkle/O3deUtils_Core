@@ -1,10 +1,9 @@
 
 #pragma once
 
-#include <CppUtils_Concepts/Std.h>
 #include <AzCore/Component/Component.h>
 #include <type_traits>
-#include <CppUtils_Concepts.h>
+#include <CppUtils_Core/Concepts.h>
 
 namespace AZ
 {
@@ -22,10 +21,10 @@ namespace O3deUtils::Core::AzCoreUtils
     template <class T>
     const char* TryGetTypeName();
 
-    template <CppUtils::Concepts::PointerToDerivedFrom<AZ::Component> TComponentPtr>
+    template <CppUtils::Core::Concepts::PointerToDerivedFrom<AZ::Component> TComponentPtr>
     TComponentPtr FindComponent(const AZ::Entity& entity);
 
-    template <CppUtils::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
+    template <CppUtils::Core::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
     TComponentRef FindComponent(const AZ::Entity& entity);
 } // namespace O3deUtils::Core::AzCoreUtils
 
