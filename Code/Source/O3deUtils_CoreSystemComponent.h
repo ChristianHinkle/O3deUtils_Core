@@ -4,16 +4,17 @@
 #include <AzCore/Component/Component.h>
 #include <AzCore/Component/TickBus.h>
 #include <O3deUtils_Core/O3deUtils_CoreBus.h>
+#include <O3deUtils_Core/O3deUtils_CoreConfiguration.h>
 
 namespace O3deUtils_Core
 {
-    class O3deUtils_CoreSystemComponent
+    class O3DEUTILS_CORE_API O3deUtils_CoreSystemComponent
         : public AZ::Component
         , protected O3deUtils_CoreRequestBus::Handler
         , public AZ::TickBus::Handler
     {
     public:
-        AZ_COMPONENT_DECL(O3deUtils_CoreSystemComponent);
+        AZ_COMPONENT_DECL_API(O3DEUTILS_CORE_API, O3deUtils_CoreSystemComponent);
 
         static void Reflect(AZ::ReflectContext* context);
 

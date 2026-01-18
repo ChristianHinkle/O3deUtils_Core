@@ -3,10 +3,11 @@
 #include <AzCore/Module/Module.h>
 #include <AzCore/RTTI/RTTIMacros.h>
 #include <AzCore/RTTI/TypeInfoSimple.h>
+#include <O3deUtils_Core/O3deUtils_CoreConfiguration.h>
 
 namespace O3deUtils_Core
 {
-    class O3deUtils_CoreModuleInterface
+    class O3DEUTILS_CORE_API O3deUtils_CoreModuleInterface
         : public AZ::Module
     {
     public:
