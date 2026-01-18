@@ -18,8 +18,8 @@ if(NOT PAL_TRAIT_O3DEUTILS_CORE_SUPPORTED)
 endif()
 
 set(MY_COMMON_API_FILES_CMAKE
-    o3deutils_core_api_files.cmake
-    ${pal_dir}/o3deutils_core_api_files.cmake
+    o3deutils_core_common_api_files.cmake
+    ${pal_dir}/o3deutils_core_common_api_files.cmake
 )
 
 set(MY_COMMON_API_INCLUDE_DIRECTORIES
@@ -78,8 +78,8 @@ unset(MY_COMMON_API_BUILD_DEPENDENCIES)
 # These variables contain common items that are used in all unified, server, and client versions of our static target.
 
 set(MY_COMMON_STATIC_FILES_CMAKE
-    o3deutils_core_private_files.cmake
-    ${pal_dir}/o3deutils_core_private_files.cmake
+    o3deutils_core_common_private_files.cmake
+    ${pal_dir}/o3deutils_core_common_private_files.cmake
 )
 
 set(MY_COMMON_STATIC_TARGET_PROPERTIES
@@ -153,8 +153,8 @@ unset(MY_COMMON_STATIC_BUILD_DEPENDENCIES)
 # These variables contain common items that are used in all unified, server, and client versions of our module target.
 
 set(MY_COMMON_MODULE_FILES_CMAKE
-    o3deutils_core_shared_files.cmake
-    ${pal_dir}/o3deutils_core_shared_files.cmake
+    o3deutils_core_common_shared_files.cmake
+    ${pal_dir}/o3deutils_core_common_shared_files.cmake
 )
 
 set(MY_COMMON_MODULE_INCLUDE_DIRECTORIES
@@ -257,8 +257,8 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
         NAME ${gem_name}.Editor.API INTERFACE
         NAMESPACE Gem
         FILES_CMAKE
-            o3deutils_core_editor_api_files.cmake
-            ${pal_dir}/o3deutils_core_editor_api_files.cmake
+            o3deutils_core_tools_api_files.cmake
+            ${pal_dir}/o3deutils_core_tools_api_files.cmake
         INCLUDE_DIRECTORIES
             INTERFACE
                 Include
@@ -274,7 +274,7 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
         NAME ${gem_name}.Editor.Static STATIC
         NAMESPACE Gem
         FILES_CMAKE
-            o3deutils_core_editor_private_files.cmake
+            o3deutils_core_tools_private_files.cmake
         TARGET_PROPERTIES
             O3DE_PRIVATE_TARGET TRUE
         INCLUDE_DIRECTORIES
@@ -292,7 +292,7 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
         NAMESPACE Gem
         AUTOMOC
         FILES_CMAKE
-            o3deutils_core_editor_shared_files.cmake
+            o3deutils_core_tools_shared_files.cmake
         INCLUDE_DIRECTORIES
             PRIVATE
                 .
@@ -374,7 +374,7 @@ if(PAL_TRAIT_BUILD_TESTS_SUPPORTED)
                 NAME ${gem_name}.Editor.Tests ${PAL_TRAIT_TEST_TARGET_TYPE}
                 NAMESPACE Gem
                 FILES_CMAKE
-                    o3deutils_core_editor_tests_files.cmake
+                    o3deutils_core_tools_tests_files.cmake
                 INCLUDE_DIRECTORIES
                     PRIVATE
                         Tests
