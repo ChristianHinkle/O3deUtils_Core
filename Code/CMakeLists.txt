@@ -3,8 +3,8 @@
 # Get the platform specific folder ${pal_dir} for the current folder: ${CMAKE_CURRENT_LIST_DIR}/Platform/${PAL_PLATFORM_NAME}
 # Note: o3de_pal_dir will take care of the details for us, as this may be a restricted platform
 #       in which case it will see if that platform is present here or in the restricted folder.
-#       i.e. It could here in our gem : Gems/O3deUtils_Core/Code/Platform/<platorm_name>  or
-#            <restricted_folder>/<platform_name>/Gems/O3deUtils_Core/Code
+#       i.e. It could here in our gem : Gems/${gem_name}/Code/Platform/<platorm_name>  or
+#            <restricted_folder>/<platform_name>/Gems/${gem_name}/Code
 o3de_pal_dir(pal_dir ${CMAKE_CURRENT_LIST_DIR}/Platform/${PAL_PLATFORM_NAME} "${gem_restricted_path}" "${gem_path}" "${gem_parent_relative_path}")
 
 # Now that we have the platform abstraction layer (PAL) folder for this folder, thats where we will find the
@@ -13,15 +13,15 @@ o3de_pal_dir(pal_dir ${CMAKE_CURRENT_LIST_DIR}/Platform/${PAL_PLATFORM_NAME} "${
 include(${pal_dir}/PAL_${PAL_PLATFORM_NAME_LOWERCASE}.cmake)
 
 # Check to see if building the Gem Modules are supported for the current platform
-if(NOT PAL_TRAIT_O3DEUTILS_CORE_SUPPORTED)
+if(NOT PAL_TRAIT_${gem_name_uppercase}_SUPPORTED)
     return()
 endif()
 
 # Define common data used by all unified, server, and client versions of our ".API" target.
 
 set(${gem_name}_COMMON_API_FILES_CMAKE
-    o3deutils_core_common_api_files.cmake
-    ${pal_dir}/o3deutils_core_common_api_files.cmake
+    ${gem_name_lowercase}_common_api_files.cmake
+    ${pal_dir}/${gem_name_lowercase}_common_api_files.cmake
 )
 
 ly_add_target(
@@ -75,8 +75,8 @@ ly_add_target(
 # Define common data used by all unified, server, and client versions of our ".Private.Object" target.
 
 set(${gem_name}_COMMON_PRIVATE_OBJECT_FILES_CMAKE
-    o3deutils_core_common_private_files.cmake
-    ${pal_dir}/o3deutils_core_common_private_files.cmake
+    ${gem_name_lowercase}_common_private_files.cmake
+    ${pal_dir}/${gem_name_lowercase}_common_private_files.cmake
 )
 
 set(${gem_name}_COMMON_PRIVATE_OBJECT_TARGET_PROPERTIES
@@ -90,7 +90,7 @@ ly_add_target(
         ${${gem_name}_COMMON_PRIVATE_OBJECT_FILES_CMAKE}
     COMPILE_DEFINITIONS
         INTERFACE
-            O3DEUTILS_CORE_EXPORTS
+            ${gem_name_uppercase}_EXPORTS
     TARGET_PROPERTIES
         O3DE_PRIVATE_TARGET TRUE
         ${${gem_name}_COMMON_PRIVATE_OBJECT_TARGET_PROPERTIES}
@@ -152,8 +152,8 @@ unset(${gem_name}_COMMON_PRIVATE_OBJECT_TARGET_PROPERTIES)
 set(${gem_name}_COMMON_FILES_CMAKE
     ${${gem_name}_COMMON_API_FILES_CMAKE}
     ${${gem_name}_COMMON_PRIVATE_OBJECT_FILES_CMAKE}
-    o3deutils_core_common_shared_files.cmake
-    ${pal_dir}/o3deutils_core_common_shared_files.cmake
+    ${gem_name_lowercase}_common_shared_files.cmake
+    ${pal_dir}/${gem_name_lowercase}_common_shared_files.cmake
 )
 
 # Add our main gem targets. These depend on their corresponding ".Private.Object" and ".API" targets.
@@ -206,7 +206,7 @@ unset(${gem_name}_COMMON_FILES_CMAKE)
 # is used to bootstrap the gem in monolithic builds to link to the new gem name
 ly_add_source_properties(
 SOURCES
-    Source/O3deUtils_CoreModule.cpp
+    Source/${gem_name}Module.cpp
 PROPERTY COMPILE_DEFINITIONS
     VALUES
         O3DE_GEM_NAME=${gem_name}
@@ -223,8 +223,8 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
         NAME ${gem_name}.Tools.API INTERFACE
         NAMESPACE Gem
         FILES_CMAKE
-            o3deutils_core_tools_api_files.cmake
-            ${pal_dir}/o3deutils_core_tools_api_files.cmake
+            ${gem_name_lowercase}_tools_api_files.cmake
+            ${pal_dir}/${gem_name_lowercase}_tools_api_files.cmake
         INCLUDE_DIRECTORIES
             INTERFACE
                 Include
@@ -240,7 +240,7 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
         NAME ${gem_name}.Tools.Private.Object INTERFACE
         NAMESPACE Gem
         FILES_CMAKE
-            o3deutils_core_tools_private_files.cmake
+            ${gem_name_lowercase}_tools_private_files.cmake
         TARGET_PROPERTIES
             O3DE_PRIVATE_TARGET TRUE
         INCLUDE_DIRECTORIES
@@ -257,9 +257,9 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
         NAMESPACE Gem
         AUTOMOC
         FILES_CMAKE
-            o3deutils_core_tools_api_files.cmake
-            o3deutils_core_tools_private_files.cmake
-            o3deutils_core_tools_shared_files.cmake
+            ${gem_name_lowercase}_tools_api_files.cmake
+            ${gem_name_lowercase}_tools_private_files.cmake
+            ${gem_name_lowercase}_tools_shared_files.cmake
         BUILD_DEPENDENCIES
             PUBLIC
                 Gem::${gem_name}.Tools.API
@@ -274,7 +274,7 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
     # is used to bootstrap the gem in monolithic builds to link to the new gem name
     ly_add_source_properties(
     SOURCES
-        Source/Tools/O3deUtils_CoreEditorModule.cpp
+        Source/Tools/${gem_name}EditorModule.cpp
     PROPERTY COMPILE_DEFINITIONS
         VALUES
             O3DE_GEM_NAME=${gem_name}
@@ -293,13 +293,13 @@ endif()
 # See if globally, tests are supported
 if(PAL_TRAIT_BUILD_TESTS_SUPPORTED)
     # We globally support tests, see if we support tests on this platform for ${gem_name}.Tests
-    if(PAL_TRAIT_O3DEUTILS_CORE_TEST_SUPPORTED)
+    if(PAL_TRAIT_${gem_name_uppercase}_TEST_SUPPORTED)
         # We support ${gem_name}.Tests on this platform, add dependency on the ".Private.Object" target
         ly_add_target(
             NAME ${gem_name}.Tests ${PAL_TRAIT_TEST_TARGET_TYPE}
             NAMESPACE Gem
             FILES_CMAKE
-                o3deutils_core_tests_files.cmake
+                ${gem_name_lowercase}_tests_files.cmake
             INCLUDE_DIRECTORIES
                 PRIVATE
                     Tests
@@ -321,14 +321,14 @@ if(PAL_TRAIT_BUILD_TESTS_SUPPORTED)
     # If we are a host platform we want to add tools test like editor tests here
     if(PAL_TRAIT_BUILD_HOST_TOOLS)
         # We are a host platform, see if Editor tests are supported on this platform
-        if(PAL_TRAIT_O3DEUTILS_CORE_EDITOR_TEST_SUPPORTED)
+        if(PAL_TRAIT_${gem_name_uppercase}_EDITOR_TEST_SUPPORTED)
             # We support ${gem_name}.Tools.Tests on this platform, add ${gem_name}.Tools.Tests target which depends on
             # private ${gem_name}.Tools.Private.Object target
             ly_add_target(
                 NAME ${gem_name}.Tools.Tests ${PAL_TRAIT_TEST_TARGET_TYPE}
                 NAMESPACE Gem
                 FILES_CMAKE
-                    o3deutils_core_tools_tests_files.cmake
+                    ${gem_name_lowercase}_tools_tests_files.cmake
                 INCLUDE_DIRECTORIES
                     PRIVATE
                         Tests
