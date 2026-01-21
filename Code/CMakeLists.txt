@@ -147,6 +147,7 @@ ly_add_target(
 
 # Unset these variables, as they are no longer needed.
 unset(${gem_name}_COMMON_PRIVATE_OBJECT_TARGET_PROPERTIES)
+
 # Define common data used by all unified, server, and client versions of our main gem target.
 
 set(${gem_name}_COMMON_FILES_CMAKE
@@ -154,6 +155,10 @@ set(${gem_name}_COMMON_FILES_CMAKE
     ${${gem_name}_COMMON_PRIVATE_OBJECT_FILES_CMAKE}
     ${gem_name_lowercase}_common_shared_files.cmake
     ${pal_dir}/${gem_name_lowercase}_common_shared_files.cmake
+    ${gem_name_lowercase}_common_autogen_files.cmake
+)
+
+set(${gem_name}_COMMON_AUTOGEN_RULES
 )
 
 # Add our main gem targets. These depend on their corresponding ".Private.Object" and ".API" targets.
@@ -168,6 +173,8 @@ ly_add_target(
             Gem::${gem_name}.Unified.API
         PRIVATE
             Gem::${gem_name}.Unified.Private.Object
+    AUTOGEN_RULES
+        ${${gem_name}_COMMON_AUTOGEN_RULES}
 )
 
 ly_add_target(
@@ -180,6 +187,8 @@ ly_add_target(
             Gem::${gem_name}.Servers.API
         PRIVATE
             Gem::${gem_name}.Servers.Private.Object
+    AUTOGEN_RULES
+        ${${gem_name}_COMMON_AUTOGEN_RULES}
 )
 
 ly_add_target(
@@ -192,12 +201,15 @@ ly_add_target(
             Gem::${gem_name}.Clients.API
         PRIVATE
             Gem::${gem_name}.Clients.Private.Object
+    AUTOGEN_RULES
+        ${${gem_name}_COMMON_AUTOGEN_RULES}
 )
 
 # Unset these variables, as they are no longer needed.
 unset(${gem_name}_COMMON_API_FILES_CMAKE)
 unset(${gem_name}_COMMON_PRIVATE_OBJECT_FILES_CMAKE)
 unset(${gem_name}_COMMON_FILES_CMAKE)
+unset(${gem_name}_COMMON_AUTOGEN_RULES)
 
 # Include the gem name into the Client Module source file
 # for use with the AZ_DECLARE_MODULE_CLASS macro
@@ -287,6 +299,7 @@ if(PAL_TRAIT_BUILD_HOST_TOOLS)
     # for the Tools and Builders gem variants
     o3de_add_variant_dependencies_for_gem_dependencies(GEM_NAME ${gem_name} VARIANTS Tools Builders)
 endif()
+
 ################################################################################
 # Tests
 ################################################################################
