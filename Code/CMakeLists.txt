@@ -36,8 +36,10 @@ ly_add_target(
             Include
     BUILD_DEPENDENCIES
         INTERFACE
-            AZ::AzCore
             CppUtils::Core::Include
+            CppUtils::Misc::Include
+            CppUtils::StdReimpl::Include
+            AZ::AzCore
 )
 
 # Add our actual ".API" targets.
@@ -99,8 +101,10 @@ ly_add_target(
             .
     BUILD_DEPENDENCIES
         INTERFACE
+            CppUtils::Core::Static
+            CppUtils::Misc::Static
+            CppUtils::StdReimpl::Static
             AZ::AzCore
-            CppUtils::Core::Include
             AZ::AzFramework
 )
 
