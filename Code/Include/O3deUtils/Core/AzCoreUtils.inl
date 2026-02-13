@@ -12,7 +12,7 @@
 #include <AzCore/Component/Entity.h>
 
 template <class T>
-T& O3deUtils::AzCoreUtils::GetInterfaceAsserted()
+T& O3deUtils::GetInterfaceAsserted()
 {
     T* interface = AZ::Interface<T>::Get();
 
@@ -35,7 +35,7 @@ T& O3deUtils::AzCoreUtils::GetInterfaceAsserted()
 }
 
 template <class T>
-const char* O3deUtils::AzCoreUtils::TryGetTypeName()
+const char* O3deUtils::TryGetTypeName()
 {
     if constexpr (AZ::Internal::HasAzTypeInfo_v<T>)
     {
@@ -57,7 +57,7 @@ const char* O3deUtils::AzCoreUtils::TryGetTypeName()
 }
 
 template <CppUtils::Core::Concepts::PointerToDerivedFrom<AZ::Component> TComponentPtr>
-TComponentPtr O3deUtils::AzCoreUtils::FindComponent(const AZ::Entity& entity)
+TComponentPtr O3deUtils::FindComponent(const AZ::Entity& entity)
 {
     using ComponentType = std::remove_pointer_t<TComponentPtr>;
 
@@ -65,7 +65,7 @@ TComponentPtr O3deUtils::AzCoreUtils::FindComponent(const AZ::Entity& entity)
 }
 
 template <CppUtils::Core::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
-TComponentRef O3deUtils::AzCoreUtils::FindComponent(const AZ::Entity& entity)
+TComponentRef O3deUtils::FindComponent(const AZ::Entity& entity)
 {
     using ComponentType = std::remove_reference_t<TComponentRef>;
 

@@ -13,7 +13,7 @@ namespace AZ
     class Entity;
 }
 
-namespace O3deUtils::AzCoreUtils
+namespace O3deUtils
 {
     template <class T>
     T& GetInterfaceAsserted();
@@ -26,6 +26,6 @@ namespace O3deUtils::AzCoreUtils
 
     template <CppUtils::Core::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
     TComponentRef FindComponent(const AZ::Entity& entity);
-} // namespace O3deUtils::AzCoreUtils
+} // namespace O3deUtils
 
 #include <O3deUtils/Core/AzCoreUtils.inl>

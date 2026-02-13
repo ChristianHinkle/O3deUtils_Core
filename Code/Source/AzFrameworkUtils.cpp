@@ -32,13 +32,13 @@ namespace
     } theRootSpawnableStateTracker;
 }
 
-namespace O3deUtils::AzFrameworkUtils
+namespace O3deUtils
 {
     bool IsRootSpawnableReady()
     {
         return theRootSpawnableStateTracker.IsRootSpawnableReady();
     }
-} // namespace O3deUtils::AzFrameworkUtils
+} // namespace O3deUtils
 
 namespace
 {
