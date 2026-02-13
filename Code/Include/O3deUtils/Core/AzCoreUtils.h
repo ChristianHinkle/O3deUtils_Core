@@ -28,4 +28,4 @@ namespace O3deUtils::Core::AzCoreUtils
     TComponentRef FindComponent(const AZ::Entity& entity);
 } // namespace O3deUtils::Core::AzCoreUtils
 
-#include <O3deUtils_Core/AzCoreUtils.inl>
+#include <O3deUtils/Core/AzCoreUtils.inl>

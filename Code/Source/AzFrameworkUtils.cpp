@@ -1,5 +1,5 @@
 
-#include <O3deUtils_Core/AzFrameworkUtils.h>
+#include <O3deUtils/Core/AzFrameworkUtils.h>
 
 #include <AzFramework/Spawnable/RootSpawnableInterface.h>
 #include <AzCore/PlatformDef.h>

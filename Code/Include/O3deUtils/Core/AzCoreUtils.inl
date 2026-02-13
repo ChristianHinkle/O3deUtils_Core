@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <O3deUtils_Core/AzCoreUtils.h>
+#include <O3deUtils/Core/AzCoreUtils.h>
 
 #include <AzCore/Interface/Interface.h>
 #include <AzCore/Debug/Trace.h>

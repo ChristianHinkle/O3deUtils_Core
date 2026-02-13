@@ -1,5 +1,5 @@
 
-#include <O3deUtils_Core/O3deUtils_CoreTypeIds.h>
+#include <O3deUtils/Core/O3deUtils_CoreTypeIds.h>
 #include <Source/O3deUtils_CoreModuleInterface.h>
 #include <Source/Tools/O3deUtils_CoreEditorSystemComponent.h>
 

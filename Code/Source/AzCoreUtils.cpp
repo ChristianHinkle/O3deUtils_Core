@@ -1,3 +1,3 @@
 
-#include <O3deUtils_Core/AzCoreUtils.h>
-#include <O3deUtils_Core/AzCoreUtils.inl>
+#include <O3deUtils/Core/AzCoreUtils.h>
+#include <O3deUtils/Core/AzCoreUtils.inl>

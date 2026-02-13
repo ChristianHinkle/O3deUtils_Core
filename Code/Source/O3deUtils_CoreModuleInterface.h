@@ -3,7 +3,7 @@
 #include <AzCore/Module/Module.h>
 #include <AzCore/RTTI/RTTIMacros.h>
 #include <AzCore/RTTI/TypeInfoSimple.h>
-#include <O3deUtils_Core/O3deUtils_CoreConfiguration.h>
+#include <O3deUtils/Core/O3deUtils_CoreConfiguration.h>
 
 namespace O3deUtils_Core
 {
