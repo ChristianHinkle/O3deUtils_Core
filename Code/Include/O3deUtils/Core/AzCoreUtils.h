@@ -3,7 +3,7 @@
 
 #include <AzCore/Component/Component.h>
 #include <type_traits>
-#include <CppUtils_Core/Concepts.h>
+#include <CppUtils/Core/Concepts.h>
 
 namespace AZ
 {
@@ -21,10 +21,10 @@ namespace O3deUtils
     template <class T>
     const char* TryGetTypeName();
 
-    template <CppUtils::Core::Concepts::PointerToDerivedFrom<AZ::Component> TComponentPtr>
+    template <CppUtils::PointerToDerivedFrom<AZ::Component> TComponentPtr>
     TComponentPtr FindComponent(const AZ::Entity& entity);
 
-    template <CppUtils::Core::Concepts::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
+    template <CppUtils::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
     TComponentRef FindComponent(const AZ::Entity& entity);
 } // namespace O3deUtils
 
