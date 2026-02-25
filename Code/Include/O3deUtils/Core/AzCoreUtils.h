@@ -8,6 +8,8 @@
 #include <AzCore/std/string/fixed_string.h>
 #include <AzCore/Component/EntityId.h>
 #include <CppUtils/Misc/String.h>
+#include <utility>
+#include <CppUtils/StdReimpl/Utility.h>
 
 namespace AZ
 {
@@ -33,15 +35,24 @@ namespace O3deUtils
 
     //! @brief A fixed string type with the necessary capacity to represent any number of the integer type in the decimal number system.
     template <StdReimpl::integral TInteger>
-    using IntFixedStringDecimal = AZStd::fixed_string<CppUtils::GetIntegerStringMaxSizeDec<TInteger>()>;
+    using IntFixedStringDec = AZStd::fixed_string<CppUtils::GetIntegerStringMaxSizeDec<TInteger>()>;
+
+    template <CppUtils::Enum TEnum>
+    using EnumIntFixedStringDec = IntFixedStringDec<std::underlying_type_t<TEnum>>;
 
     // @Christian: TODO: [todo] Templatize these to return any specialization of `basic_fixed_string`. Although, that may
     // be tricky due to AZStd's `to_string` available overloads.
 
-    inline IntFixedStringDecimal<AZ::u64> EntityIdToString(AZ::EntityId entityId);
+    inline IntFixedStringDec<AZ::u64> EntityIdToString(AZ::EntityId entityId);
 
     template <StdReimpl::integral TInteger>
-    IntFixedStringDecimal<TInteger> IntegerToString(TInteger num);
+    IntFixedStringDec<TInteger> IntegerToString(TInteger num);
+
+    template <CppUtils::Enum TEnum>
+    EnumIntFixedStringDec<TEnum> EnumIntegerToString(TEnum num)
+    {
+        return IntegerToString(StdReimpl::to_underlying(num));
+    }
 } // namespace O3deUtils
 
 #include <O3deUtils/Core/AzCoreUtils.inl>
