@@ -87,3 +87,19 @@ TComponentRef O3deUtils::FindComponent(const AZ::Entity& entity)
 
     return *foundComponent;
 }
+
+namespace O3deUtils
+{
+    IntFixedStringDecimal<AZ::u64> EntityIdToString(AZ::EntityId entityId)
+    {
+        return IntegerToString(entityId.operator AZ::u64());
+    }
+
+    template <StdReimpl::integral TInteger>
+    IntFixedStringDecimal<TInteger> IntegerToString(TInteger num)
+    {
+        IntFixedStringDecimal<TInteger> result;
+        AZStd::to_string(result, num);
+        return result;
+    }
+} // namespace O3deUtils

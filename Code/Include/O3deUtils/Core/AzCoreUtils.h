@@ -7,6 +7,7 @@
 #include <CppUtils/Core/Concepts.h>
 #include <AzCore/std/string/fixed_string.h>
 #include <AzCore/Component/EntityId.h>
+#include <CppUtils/Misc/String.h>
 
 namespace AZ
 {
@@ -30,22 +31,17 @@ namespace O3deUtils
     template <CppUtils::ReferenceToDerivedFrom<AZ::Component> TComponentRef>
     TComponentRef FindComponent(const AZ::Entity& entity);
 
-    // @Christian: TODO: [todo] Consider making these inline (instead of dll-exported) and templatize them to return any
-    // specialization of `basic_fixed_string`. Although, that may be tricky due to AZStd's `to_string` available overloads.
+    //! @brief A fixed string type with the necessary capacity to represent any number of the integer type in the decimal number system.
+    template <StdReimpl::integral TInteger>
+    using IntFixedStringDecimal = AZStd::fixed_string<CppUtils::GetIntegerStringMaxSizeDec<TInteger>()>;
 
-    O3DEUTILS_CORE_API AZStd::fixed_string<24> EntityIdToString(AZ::EntityId entityId);
+    // @Christian: TODO: [todo] Templatize these to return any specialization of `basic_fixed_string`. Although, that may
+    // be tricky due to AZStd's `to_string` available overloads.
 
-    O3DEUTILS_CORE_API AZStd::fixed_string<24> IntegerToString(AZ::u64 num);
-    O3DEUTILS_CORE_API AZStd::fixed_string<24> IntegerToString(AZ::s64 num);
+    inline IntFixedStringDecimal<AZ::u64> EntityIdToString(AZ::EntityId entityId);
 
-    O3DEUTILS_CORE_API AZStd::fixed_string<16> IntegerToString(AZ::u32 num);
-    O3DEUTILS_CORE_API AZStd::fixed_string<16> IntegerToString(AZ::s32 num);
-
-    O3DEUTILS_CORE_API AZStd::fixed_string<8> IntegerToString(AZ::u16 num);
-    O3DEUTILS_CORE_API AZStd::fixed_string<8> IntegerToString(AZ::s16 num);
-
-    O3DEUTILS_CORE_API AZStd::fixed_string<4> IntegerToString(AZ::u8 num);
-    O3DEUTILS_CORE_API AZStd::fixed_string<4> IntegerToString(AZ::s8 num);
+    template <StdReimpl::integral TInteger>
+    IntFixedStringDecimal<TInteger> IntegerToString(TInteger num);
 } // namespace O3deUtils
 
 #include <O3deUtils/Core/AzCoreUtils.inl>
