@@ -10,6 +10,8 @@
 #include <AzCore/RTTI/TypeInfoSimple.h>
 #include <AzCore/std/string/string_view.h>
 #include <AzCore/Component/Entity.h>
+#include <AzCore/std/string/conversions.h>
+#include <CppUtils/StdReimpl/Concepts.h>
 
 template <class T>
 T& O3deUtils::GetInterfaceAsserted()
