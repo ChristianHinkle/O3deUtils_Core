@@ -9,7 +9,7 @@
 #include <AzCore/Component/EntityId.h>
 #include <CppUtils/Misc/String.h>
 #include <utility>
-#include <CppUtils/StdReimpl/Utility.h>
+#include <CppUtils/StdReimpl/utility.h>
 
 namespace AZ
 {
