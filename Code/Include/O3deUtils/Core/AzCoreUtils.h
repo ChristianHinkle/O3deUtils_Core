@@ -7,7 +7,7 @@
 #include <CppUtils/Core/Concepts.h>
 #include <AzCore/std/string/fixed_string.h>
 #include <AzCore/Component/EntityId.h>
-#include <CppUtils/Misc/String.h>
+#include <CppUtils/Core/String.h>
 #include <utility>
 #include <CppUtils/StdReimpl/utility.h>
 
