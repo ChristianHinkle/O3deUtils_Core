@@ -6,7 +6,7 @@
 #include <O3deUtils/Core/O3deUtils_CoreBus.h>
 #include <O3deUtils/Core/O3deUtils_CoreConfiguration.h>
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     class O3DEUTILS_CORE_API O3deUtils_CoreSystemComponent
         : public AZ::Component
@@ -45,4 +45,4 @@ namespace O3deUtils_Core
         ////////////////////////////////////////////////////////////////////////
     };
 
-} // namespace O3deUtils_Core
+}

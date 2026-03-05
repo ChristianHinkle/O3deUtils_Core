@@ -5,7 +5,7 @@
 
 #include <AzCore/Serialization/SerializeContext.h>
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     AZ_COMPONENT_IMPL(O3deUtils_CoreSystemComponent, "O3deUtils_CoreSystemComponent",
         O3deUtils_CoreSystemComponentTypeId);
@@ -74,4 +74,4 @@ namespace O3deUtils_Core
     {
     }
 
-} // namespace O3deUtils_Core
+}

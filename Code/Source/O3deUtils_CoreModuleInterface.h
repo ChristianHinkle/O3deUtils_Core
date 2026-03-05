@@ -5,7 +5,7 @@
 #include <AzCore/RTTI/TypeInfoSimple.h>
 #include <O3deUtils/Core/O3deUtils_CoreConfiguration.h>
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     class O3DEUTILS_CORE_API O3deUtils_CoreModuleInterface
         : public AZ::Module
@@ -22,4 +22,4 @@ namespace O3deUtils_Core
          */
         AZ::ComponentTypeList GetRequiredSystemComponents() const override;
     };
-}// namespace O3deUtils_Core
+}

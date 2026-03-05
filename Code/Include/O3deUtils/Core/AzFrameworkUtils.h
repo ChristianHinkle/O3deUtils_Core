@@ -6,4 +6,4 @@
 namespace O3deUtils
 {
     O3DEUTILS_CORE_API bool IsRootSpawnableReady();
-} // namespace O3deUtils
+}

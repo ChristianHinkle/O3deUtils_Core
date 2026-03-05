@@ -6,7 +6,7 @@
 
 #include <Source/O3deUtils_CoreSystemComponent.h>
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     AZ_TYPE_INFO_WITH_NAME_IMPL(O3deUtils_CoreModuleInterface,
         "O3deUtils_CoreModuleInterface", O3deUtils_CoreModuleInterfaceTypeId);
@@ -30,4 +30,4 @@ namespace O3deUtils_Core
             azrtti_typeid<O3deUtils_CoreSystemComponent>(),
         };
     }
-} // namespace O3deUtils_Core
+}

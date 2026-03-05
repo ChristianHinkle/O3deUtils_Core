@@ -38,7 +38,7 @@ namespace O3deUtils
     {
         return theRootSpawnableStateTracker.IsRootSpawnableReady();
     }
-} // namespace O3deUtils
+}
 
 namespace
 {

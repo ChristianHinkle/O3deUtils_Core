@@ -53,6 +53,6 @@ namespace O3deUtils
     {
         return IntegerToString(StdReimpl::to_underlying(num));
     }
-} // namespace O3deUtils
+}
 
 #include <O3deUtils/Core/AzCoreUtils.inl>

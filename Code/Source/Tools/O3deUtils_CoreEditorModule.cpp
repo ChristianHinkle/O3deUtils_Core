@@ -3,7 +3,7 @@
 #include <Source/O3deUtils_CoreModuleInterface.h>
 #include <Source/Tools/O3deUtils_CoreEditorSystemComponent.h>
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     class O3deUtils_CoreEditorModule
         : public O3deUtils_CoreModuleInterface
@@ -34,10 +34,10 @@ namespace O3deUtils_Core
             };
         }
     };
-}// namespace O3deUtils_Core
+}
 
 #if defined(O3DE_GEM_NAME)
-AZ_DECLARE_MODULE_CLASS(AZ_JOIN(Gem_, O3DE_GEM_NAME, _Editor), O3deUtils_Core::O3deUtils_CoreEditorModule)
+AZ_DECLARE_MODULE_CLASS(AZ_JOIN(Gem_, O3DE_GEM_NAME, _Editor), O3deUtils::O3deUtils_CoreEditorModule)
 #else
-AZ_DECLARE_MODULE_CLASS(Gem_O3deUtils_Core_Editor, O3deUtils_Core::O3deUtils_CoreEditorModule)
+AZ_DECLARE_MODULE_CLASS(Gem_O3deUtils_Core_Editor, O3deUtils::O3deUtils_CoreEditorModule)
 #endif

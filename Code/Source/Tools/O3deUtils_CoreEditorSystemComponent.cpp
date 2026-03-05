@@ -4,7 +4,7 @@
 
 #include <O3deUtils/Core/O3deUtils_CoreTypeIds.h>
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     AZ_COMPONENT_IMPL(O3deUtils_CoreEditorSystemComponent, "O3deUtils_CoreEditorSystemComponent",
         O3deUtils_CoreEditorSystemComponentTypeId, BaseSystemComponent);
@@ -56,4 +56,4 @@ namespace O3deUtils_Core
         O3deUtils_CoreSystemComponent::Deactivate();
     }
 
-} // namespace O3deUtils_Core
+}

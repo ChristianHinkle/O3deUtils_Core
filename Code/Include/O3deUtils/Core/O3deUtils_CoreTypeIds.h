@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace O3deUtils_Core
+namespace O3deUtils
 {
     // System Component TypeIds
     inline constexpr const char* O3deUtils_CoreSystemComponentTypeId = "{BB24F523-1FD0-4FA1-A862-3126458F2740}";
@@ -16,4 +16,4 @@ namespace O3deUtils_Core
 
     // Interface TypeIds
     inline constexpr const char* O3deUtils_CoreRequestsTypeId = "{5738B9F5-8ADC-40C6-9E6D-65748A109218}";
-} // namespace O3deUtils_Core
+}
