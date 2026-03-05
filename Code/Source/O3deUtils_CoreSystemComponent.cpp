@@ -1,7 +1,7 @@
 
 #include <Source/O3deUtils_CoreSystemComponent.h>
 
-#include <O3deUtils/Core/O3deUtils_CoreTypeIds.h>
+#include <O3deUtils_CoreTypeIds.h>
 
 #include <AzCore/Serialization/SerializeContext.h>
 

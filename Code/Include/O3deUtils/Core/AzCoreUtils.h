@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <O3deUtils/Core/O3deUtils_CoreConfiguration.h>
+#include <O3deUtils_CoreConfiguration.h>
 #include <AzCore/Component/Component.h>
 #include <type_traits>
 #include <CppUtils/Core/Concepts.h>
